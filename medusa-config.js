@@ -33,29 +33,28 @@ const DATABASE_URL =
 
 const REDIS_URL = process.env.REDIS_URL || "redis://localhost:6379";
 
-const RUN_ADMIN = process.env.NODE_ENV === "development" || false;
-
 const plugins = [
-  `medusa-fulfillment-manual`,
-  `medusa-payment-manual`,
+  "medusa-fulfillment-manual",
+  "medusa-payment-manual",
   {
-    resolve: `@medusajs/file-local`,
+    resolve: "@medusajs/file-local",
     options: {
       upload_dir: "uploads",
     },
   },
-  // {
-  //   resolve: "@medusajs/admin",
-  //   /** @type {import('@medusajs/admin').PluginOptions} */
-  //   options: {
-  //     // only enable `serve` in development
-  //     // you may need to add the NODE_ENV variable
-  //     // manually
-  //     serve: false,
-  //     // other options...
-  //   },
-  // },
 ];
+
+// Conditionally include the Admin plugin only in development
+if (process.env.NODE_ENV === "development") {
+  plugins.push({
+    resolve: "@medusajs/admin",
+    /** @type {import('@medusajs/admin').PluginOptions} */
+    options: {
+      serve: true,
+      // other options...
+    },
+  });
+}
 
 const modules = {
   /*eventBus: {
