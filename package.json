@@ -21,6 +21,7 @@
     "build": "babel src -d dist --extensions \".ts,.js\""
 },
   "dependencies": {
+    "@medusajs/admin": "^7.1.16",
     "@medusajs/cache-inmemory": "1.8.11",
     "@medusajs/cache-redis": "^1.9.2",
     "@medusajs/event-bus-local": "1.9.9",
@@ -40,7 +41,6 @@
     "typeorm": "0.3.16"
   },
   "devDependencies": {
-    "@medusajs/admin": "^7.1.16",
     "@babel/cli": "^7.14.3",
     "@babel/core": "^7.14.3",
     "@babel/preset-typescript": "^7.21.4",
