@@ -12,6 +12,11 @@ switch (process.env.NODE_ENV) {
     ENV_FILE_NAME = ".env.test";
     break;
   case "development":
+    ENV_FILE_NAME = ".env.development";
+    break;
+  case "heroku":
+    ENV_FILE_NAME = ".env.heroku";
+    break;
   default:
     ENV_FILE_NAME = ".env";
     break;
@@ -45,7 +50,7 @@ const plugins = [
 ];
 
 // Conditionally include the Admin plugin only in development
-if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV !== "heroku") {
   plugins.push({
     resolve: "@medusajs/admin",
     /** @type {import('@medusajs/admin').PluginOptions} */
