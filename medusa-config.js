@@ -55,7 +55,7 @@ if (process.env.NODE_ENV !== "heroku") {
     resolve: "@medusajs/admin",
     /** @type {import('@medusajs/admin').PluginOptions} */
     options: {
-      serve: false,
+      serve: true,
       backend: process.env.BACKEND_URL || "http://localhost:9000"
       // other options...
     },
