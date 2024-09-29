@@ -33,6 +33,8 @@ const DATABASE_URL =
 
 const REDIS_URL = process.env.REDIS_URL || "redis://localhost:6379";
 
+const RUN_ADMIN = process.env.NODE_ENV === "development" || false;
+
 const plugins = [
   `medusa-fulfillment-manual`,
   `medusa-payment-manual`,
@@ -49,7 +51,7 @@ const plugins = [
       // only enable `serve` in development
       // you may need to add the NODE_ENV variable
       // manually
-      serve: process.env.NODE_ENV === "development",
+      serve: RUN_ADMIN,
       // other options...
     },
   },
