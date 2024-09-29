@@ -7,7 +7,7 @@ yarn-error.log
 .idea
 
 coverage
-
+#
 !src/**
 
 ./tsconfig.tsbuildinfo
