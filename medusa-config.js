@@ -47,7 +47,8 @@ const plugins = [
 ];
 
 // Conditionally include the Admin plugin only in development
-if (!process.env.REMOVE_ADMIN || process.env.REMOVE_ADMIN !== "true") {
+ADD_ADMIN = process.env.ADD_ADMIN || "true";
+if (ADD_ADMIN === "true") {
   plugins.push({
     resolve: "@medusajs/admin",
     /** @type {import('@medusajs/admin').PluginOptions} */
