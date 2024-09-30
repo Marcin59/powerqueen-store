@@ -17,6 +17,9 @@ switch (process.env.NODE_ENV) {
   case "heroku":
     ENV_FILE_NAME = ".env.heroku";
     break;
+  case "vercel":
+    ENV_FILE_NAME = ".env.vercel";
+    break;
   default:
     ENV_FILE_NAME = ".env";
     break;
