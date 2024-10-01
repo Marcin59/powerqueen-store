@@ -35,6 +35,8 @@ const DATABASE_URL =
 
 const REDIS_URL = process.env.REDIS_URL || "redis://localhost:6379";
 
+const MEDUSA_ADMIN_BACKEND_URL = process.env.MEDUSA_ADMIN_BACKEND_URL || "http://localhost:9000";
+
 const plugins = [
   "medusa-fulfillment-manual",
   "medusa-payment-manual",
@@ -42,7 +44,7 @@ const plugins = [
     resolve: "@medusajs/file-local",
     options: {
       upload_dir: "uploads",
-      backend_url: process.env.BACKEND_URL || "http://localhost:9000"
+      backend_url: MEDUSA_ADMIN_BACKEND_URL
     },
   },
 ];
@@ -55,7 +57,7 @@ if (ADD_ADMIN === "true") {
     /** @type {import('@medusajs/admin').PluginOptions} */
     options: {
       serve: false,
-      backend: process.env.BACKEND_URL || "http://localhost:9000"
+      backend: MEDUSA_ADMIN_BACKEND_URL
       // other options...
     },
   });
