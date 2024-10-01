@@ -53,7 +53,7 @@ if (ADD_ADMIN === "true") {
     resolve: "@medusajs/admin",
     /** @type {import('@medusajs/admin').PluginOptions} */
     options: {
-      serve: true,
+      serve: false,
       backend: process.env.BACKEND_URL || "http://localhost:9000"
       // other options...
     },
