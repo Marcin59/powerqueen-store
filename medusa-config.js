@@ -44,7 +44,7 @@ const plugins = [
     resolve: "@medusajs/file-local",
     options: {
       upload_dir: "uploads",
-      backend_url: "https://powerqueen-store-backend-ebcddb895514.herokuapp.com",
+      backend_url: MEDUSA_ADMIN_BACKEND_URL,
     },
   },
 ];
